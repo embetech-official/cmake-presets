@@ -6,7 +6,7 @@
     "configurePresets": [
         {
             "name": "native-gcc",
-            "displayName": "arch: Native,\tos: Native,\tfp: native",
+            "displayName": "arch: Native,         os: Native, fp: native",
             "description": "Let the CMake find the best compiler for the host system",
             "inherits": "gcc-native",
             "cacheVariables": {

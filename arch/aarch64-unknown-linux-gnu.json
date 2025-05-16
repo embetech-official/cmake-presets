@@ -6,7 +6,7 @@
     "configurePresets": [
         {
             "name": "aarch64-linux-gnu",
-            "displayName": "arch: ARMv8-A,\tos: Linux,\tfp: hard",
+            "displayName": "arch: ARMv8-A,    os: Linux, fp: hard",
             "description": "AArch64 for Linux",
             "inherits": "gcc-arm-none-linux-gnueabihf",
             "cacheVariables": {

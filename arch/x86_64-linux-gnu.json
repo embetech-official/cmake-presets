@@ -6,7 +6,7 @@
     "configurePresets": [
         {
             "name": "x86_64-linux-gnu",
-            "displayName": "arch: x86_64,\tos: Linux,\tfp: hard",
+            "displayName": "arch: x86_64,        os: Linux, fp: hard",
             "description": "x86_64 for Linux",
             "inherits": "gcc-x86_64-linux-gnu",
             "cacheVariables": {
