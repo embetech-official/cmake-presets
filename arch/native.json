@@ -1,0 +1,27 @@
+{
+    "version": 6,
+    "include": [
+        "${fileDir}/../../toolchain/gcc.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "native-gcc",
+            "displayName": "arch: Native,\tos: Native,\tfp: native",
+            "description": "Let the CMake find the best compiler for the host system",
+            "inherits": "gcc-native",
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS_INIT": "-ffunction-sections -fdata-sections",
+                "CMAKE_C_FLAGS_INIT": "-ffunction-sections -fdata-sections",
+                "CMAKE_ASM_FLAGS_INIT": "-x assembler-with-cpp",
+                "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections -Wl,--print-memory-usage"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "native-gcc",
+            "description": "No build targets specified",
+            "configurePreset": "native-gcc"
+        }
+    ]
+}

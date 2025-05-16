@@ -8,9 +8,26 @@
             "generator": "Ninja Multi-Config",
             "cacheVariables": {
                 "CMAKE_CONFIGURATION_TYPES": "Release;Debug",
-                "CMAKE_DEFAULT_BUILD_TYPE": "Release",
                 "CMAKE_DEBUG_POSTFIX": "-debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "ninja-multi-config-debug",
+            "hidden": true,
+            "description": "Use Ninja Multi-Config generator with default Debug configuration",
+            "inherits": "ninja-multi-config",
+            "cacheVariables": {
+                "CMAKE_DEFAULT_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "ninja-multi-config-release",
+            "hidden": true,
+            "description": "Use Ninja Multi-Config generator with default Release configuration",
+            "inherits": "ninja-multi-config",
+            "cacheVariables": {
+                "CMAKE_DEFAULT_BUILD_TYPE": "Release"
             }
         }
     ]

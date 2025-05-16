@@ -8,6 +8,7 @@
         "thumbv7em-none-eabihf.json",
         "thumbv7m-none-eabi.json",
         "x86_64-linux-gnu.json",
-        "x86_64-windows-gnu.json"
+        "x86_64-windows-gnu.json",
+        "native.json"
     ]
 }

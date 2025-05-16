@@ -73,6 +73,17 @@
                 "CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc",
                 "CMAKE_ASM_COMPILER": "x86_64-w64-mingw32-gcc"
             }
+        },
+        {
+            "name": "gcc-native",
+            "description": "GCC native toolchain",
+            "hidden": true,
+            "inherits": "gcc-build-types",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_ASM_COMPILER": "gcc"
+            }
         }
     ]
 }
