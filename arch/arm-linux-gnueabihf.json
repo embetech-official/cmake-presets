@@ -6,7 +6,7 @@
     "configurePresets": [
         {
             "name": "armv6-linux-gnueabihf",
-            "displayName": "arch: ARMv6, os: Linux, fp: hard",
+            "displayName": "arch: ARMv6,\tos: Linux,\tfp: hard",
             "description": "AArch32 for Linux",
             "inherits": "gcc-arm-none-linux-gnueabihf",
             "cacheVariables": {

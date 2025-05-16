@@ -6,7 +6,7 @@
     "configurePresets": [
         {
             "name": "thumbv7m-none-eabi",
-            "displayName": "arch: ARMv7e-M, os: None, fp: soft",
+            "displayName": "arch: ARMv7-M,\tos: None,\tfp: soft",
             "description": "ARMv7-M for bare metal (Cortex M3)",
             "inherits": "gcc-arm-none-eabi",
             "cacheVariables": {
