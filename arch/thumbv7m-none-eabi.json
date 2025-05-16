@@ -1,0 +1,30 @@
+
+
+{
+    "version": 6,
+    "include": [
+        "${fileDir}/../../toolchain/gcc.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "thumbv7m-none-eabi",
+            "displayName": "arch: ARMv7e-M, os: None, fp: soft",
+            "description": "ARMv7-M for bare metal (Cortex M3)",
+            "inherits": "gcc-arm-none-eabi",
+            "cacheVariables": {
+                "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7m-none-eabi",
+                "CMAKE_CXX_FLAGS_INIT": "-mthumb -march=armv7-m -mfloat-abi=soft -ffunction-sections -fdata-sections",
+                "CMAKE_C_FLAGS_INIT": "-mthumb -march=armv7-m -mfloat-abi=soft -ffunction-sections -fdata-sections",
+                "CMAKE_ASM_FLAGS_INIT": "-mthumb -march=armv7-m -mfloat-abi=soft -x assembler-with-cpp",
+                "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections -Wl,--print-memory-usage"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "thumbv7m-none-eabi",
+            "description": "No build targets specified",
+            "configurePreset": "thumbv7m-none-eabi"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "version": 6,
+    "include": [
+        "${fileDir}/../../toolchain/gcc.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "armv6-linux-gnueabihf",
+            "displayName": "arch: ARMv6, os: Linux, fp: hard",
+            "description": "AArch32 for Linux",
+            "inherits": "gcc-arm-none-linux-gnueabihf",
+            "cacheVariables": {
+                "CMAKE_LIBRARY_ARCHITECTURE": "armv6-linux-gnueabihf",
+                "CMAKE_CXX_FLAGS_INIT": "-marm -march=armv6+fp -mfloat-abi=hard -ffunction-sections -fdata-sections",
+                "CMAKE_C_FLAGS_INIT": "-marm -march=armv6+fp -mfloat-abi=hard -ffunction-sections -fdata-sections",
+                "CMAKE_ASM_FLAGS_INIT": "-marm -march=armv6+fp -mfloat-abi=hard -x assembler-with-cpp",
+                "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections -Wl,--print-memory-usage"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "armv6-linux-gnueabihf",
+            "description": "No build targets specified",
+            "configurePreset": "armv6-linux-gnueabihf"
+        }
+    ]
+}

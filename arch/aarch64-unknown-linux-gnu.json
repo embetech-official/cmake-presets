@@ -1,0 +1,28 @@
+{
+    "version": 6,
+    "include": [
+        "${fileDir}/../../toolchain/gcc.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "aarch64-linux-gnu",
+            "displayName": "arch: ARMv8-A, os: Linux, fp: hard",
+            "description": "AArch64 for Linux",
+            "inherits": "gcc-arm-none-linux-gnueabihf",
+            "cacheVariables": {
+                "CMAKE_LIBRARY_ARCHITECTURE": "aarch64-linux-gnu",
+                "CMAKE_CXX_FLAGS_INIT": "-marm -march=armv8-a+simd+crypto+crc -mfloat-abi=hard -ffunction-sections -fdata-sections",
+                "CMAKE_C_FLAGS_INIT": "-marm -march=armv8-a+simd+crypto+crc -mfloat-abi=hard -ffunction-sections -fdata-sections",
+                "CMAKE_ASM_FLAGS_INIT": "-marm -march=armv8-a+simd+crypto+crc -mfloat-abi=hard -x assembler-with-cpp",
+                "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections -Wl,--print-memory-usage"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "aarch64-linux-gnu",
+            "description": "No build targets specified",
+            "configurePreset": "aarch64-linux-gnu"
+        }
+    ]
+}

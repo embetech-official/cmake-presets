@@ -1,0 +1,17 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "ninja-multi-config",
+            "hidden": true,
+            "description": "Use Ninja Multi-Config generator",
+            "generator": "Ninja Multi-Config",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Release;Debug",
+                "CMAKE_DEFAULT_BUILD_TYPE": "Release",
+                "CMAKE_DEBUG_POSTFIX": "-debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ]
+}
