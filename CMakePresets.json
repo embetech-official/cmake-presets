@@ -1,7 +1,26 @@
 {
     "version": 6,
     "include": [
-        "arch/arm-unknown-linux-gnueabihf.json",
-        "arch/aarch64-unknown-linux-gnu.json"
+        "arch/thumbv7m-none-eabi.json",
+        "generator/ninja-multi-config.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "my-config",
+            "inherits": [
+                "ninja-multi-config-debug",
+                "thumbv7m-none-eabi",
+                "gcc-pedantic-warnings"
+            ],
+            "cacheVariables": {
+                "MY_CUSTOM_VARIABLE": "value"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "my-build",
+            "configurePreset": "my-config"
+        }
     ]
 }
