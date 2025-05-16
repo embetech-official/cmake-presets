@@ -1,0 +1,98 @@
+name: CMake Build
+on:
+  workflow_call:
+    inputs:
+      configure_preset:
+        description: 'Configure Preset'
+        required: true
+        type: string
+
+      configure_args:
+        description: 'Additional CMake Configuration Arguments, passed during configure step'
+        type: string
+
+      build_preset:
+        description: 'Build Preset. The default value to use configure_preset value'
+        type: string
+      
+      build_debug_config:
+        description: 'Flag whether to build the debug configuration'
+        type: boolean
+        default: true
+
+      build_release_config:
+        description: 'Flag whether to build the release configuration'
+        type: boolean
+        default: true
+
+      build_target:
+        description: 'Build Target. If build_preset specifies target to build, this value will be ignored by CMake'
+        type: string
+
+      test_preset:
+        description: 'Test Preset'
+        type: string
+
+      artifact_path:
+        description: 'Path to be archived'
+        type: string
+
+      artifact_name:
+        description: 'Artifact Name'
+        type: string
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  build:
+    name: "preset: ${{ inputs.configure_preset }}, target: ${{ inputs.build_target }}"
+    runs-on: [self-hosted, linux, x64]
+
+    env:
+      build_preset: ${{ inputs.build_preset != '' && inputs.build_preset || inputs.configure_preset }}
+      build_target_arg: ${{ inputs.build_target != '' && format('--target {0}',  inputs.build_target) || '' }}
+
+
+    outputs:
+      artifact-id: ${{ steps.upload_artifact.outputs.artifact-id }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }} 
+          submodules: recursive
+
+      - name: Setup Github Token 
+        run: |
+          git config --global credential.helper store
+          git config --global --get-regexp "url.*insteadof" |xargs -rL1 git config --global --unset
+          git config --global --add url.https://${{ secrets.GH_TOKEN }}@github.com/.insteadOf https://github.com/
+        
+      - name: Configure
+        run: cmake --preset ${{ inputs.configure_preset }} ${{ inputs.configure_args }}
+
+      - name: Build Debug
+        if: inputs.build_debug_config == true
+        run: cmake --build --preset ${{ env.build_preset }} --config Debug ${{ env.build_target_arg }}
+
+      - name: Build Release
+        if: inputs.build_release_config == true
+        run: cmake --build --preset ${{ env.build_preset }} --config Release ${{ env.build_target_arg }}
+
+      - name: Test
+        if: inputs.test_preset != ''
+        run: ctest --preset ${{ inputs.test_preset }}
+
+      - name: Upload artifact
+        if: inputs.artifact_name != ''
+        uses: actions/upload-artifact@v4
+        id: upload_artifact
+        env:
+          default_path: build/${{ inputs.configure_preset }}/install
+
+        with:
+          path:  ${{ inputs.artifact_path != '' && inputs.artifact_path || env.default_path }}
+          name: ${{ inputs.artifact_name }}
+          if-no-files-found: error
