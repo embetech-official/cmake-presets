@@ -12,9 +12,9 @@
             "inherits": "gcc-arm-none-eabi",
             "cacheVariables": {
                 "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7em-none-eabihf",
-                "CMAKE_CXX_FLAGS_INIT": "-mthumb -march=armv7e-m -mfloat-abi=hard -ffunction-sections -fdata-sections",
-                "CMAKE_C_FLAGS_INIT": "-mthumb -march=armv7e-m -mfloat-abi=hard -ffunction-sections -fdata-sections",
-                "CMAKE_ASM_FLAGS_INIT": "-mthumb -march=armv7e-m -mfloat-abi=hard -x assembler-with-cpp",
+                "CMAKE_CXX_FLAGS_INIT": "-mthumb -march=armv7e-m+fp -mfloat-abi=hard -ffunction-sections -fdata-sections",
+                "CMAKE_C_FLAGS_INIT": "-mthumb -march=armv7e-m+fp -mfloat-abi=hard -ffunction-sections -fdata-sections",
+                "CMAKE_ASM_FLAGS_INIT": "-mthumb -march=armv7e-m+fp -mfloat-abi=hard -x assembler-with-cpp",
                 "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections -Wl,--print-memory-usage"
             }
         }
