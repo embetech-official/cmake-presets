@@ -1,7 +1,6 @@
 {
     "version": 6,
-    "include": [
-        
+    "include": [       
         "arm-linux-gnueabihf.json",
         "thumbv6m-none-eabi.json",
         "thumbv7m-none-eabi.json",
