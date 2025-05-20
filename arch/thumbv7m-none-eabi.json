@@ -10,11 +10,10 @@
             "description": "ARMv7-M for bare metal (Cortex M3)",
             "inherits": "gcc-arm-none-eabi",
             "cacheVariables": {
-                "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7m-none-eabi",
-                "CMAKE_CXX_FLAGS_INIT": "-mthumb -march=armv7-m -mfloat-abi=soft -ffunction-sections -fdata-sections",
-                "CMAKE_C_FLAGS_INIT": "-mthumb -march=armv7-m -mfloat-abi=soft -ffunction-sections -fdata-sections",
-                "CMAKE_ASM_FLAGS_INIT": "-mthumb -march=armv7-m -mfloat-abi=soft -x assembler-with-cpp",
-                "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections -Wl,--print-memory-usage"
+                "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7m-none-eabi"
+            },
+            "environment": {
+                "ARCHITECTURE": "-mthumb -march=armv7-m -mfloat-abi=soft"
             }
         }
     ],
