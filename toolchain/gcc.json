@@ -32,6 +32,7 @@
             "hidden": true,
             "inherits": "gcc-build-types",
             "cacheVariables": {
+                "CMAKE_SYSTEM_NAME": "Generic-ELF",
                 "CMAKE_SYSTEM_PROCESSOR": "arm",
                 "CMAKE_CXX_COMPILER": "arm-none-eabi-g++",
                 "CMAKE_C_COMPILER": "arm-none-eabi-gcc",
@@ -44,6 +45,7 @@
             "hidden": true,
             "inherits": "gcc-build-types",
             "cacheVariables": {
+                "CMAKE_SYSTEM_NAME": "Linux",
                 "CMAKE_SYSTEM_PROCESSOR": "arm",
                 "CMAKE_CXX_COMPILER": "arm-none-linux-gnueabihf-g++",
                 "CMAKE_C_COMPILER": "arm-none-linux-gnueabihf-gcc",
@@ -56,6 +58,7 @@
             "hidden": true,
             "inherits": "gcc-build-types",
             "cacheVariables": {
+                "CMAKE_SYSTEM_NAME": "Linux",
                 "CMAKE_SYSTEM_PROCESSOR": "x86_64-linux-gnu",
                 "CMAKE_CXX_COMPILER": "x86_64-linux-gnu-g++",
                 "CMAKE_C_COMPILER": "x86_64-linux-gnu-gcc",
@@ -68,7 +71,8 @@
             "hidden": true,
             "inherits": "gcc-build-types",
             "cacheVariables": {
-                "CMAKE_SYSTEM_PROCESSOR": "x86_64-w64-mingw32-",
+                "CMAKE_SYSTEM_NAME": "Windows",
+                "CMAKE_SYSTEM_PROCESSOR": "x86_64-w64-mingw32",
                 "CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++",
                 "CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc",
                 "CMAKE_ASM_COMPILER": "x86_64-w64-mingw32-gcc"
