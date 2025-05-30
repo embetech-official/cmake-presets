@@ -16,9 +16,9 @@
     ],
     "buildPresets": [
         {
-            "name": "thumbv8m_main_tz-none-eabihf",
+            "name": "thumbv8m_main-none-eabihf",
             "description": "No build targets specified",
-            "configurePreset": "thumbv8m_main_tz-none-eabihf"
+            "configurePreset": "thumbv8m_main-none-eabihf"
         }
     ]
 }
