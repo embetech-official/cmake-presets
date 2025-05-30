@@ -5,12 +5,12 @@
     ],
     "configurePresets": [
         {
-            "name": "thumbv8m_main_tz-none-eabihf",
-            "displayName": "arch: ARMv8-M mainline, os: None, fp: hard, TrustZone",
+            "name": "thumbv8m_main-none-eabihf",
+            "displayName": "arch: ARMv8-M mainline, os: None, fp: hard",
             "description": "ARMv8-M for bare metal (Cortex M33, M35P, M55, M85)",
             "inherits": "gcc-arm-none-eabi",
             "environment": {
-                "ARCHITECTURE": "-mthumb -march=armv7-m -mfloat-abi=soft"
+                "ARCHITECTURE": "-mthumb -march=armv8-m.main+fp -mfloat-abi=hard"
             }
         }
     ],
