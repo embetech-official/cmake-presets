@@ -5,7 +5,7 @@
     ],
     "configurePresets": [
         {
-            "name": "thumbv8m_main-none-eabihf",
+            "name": "thumbv8m.main-none-eabihf",
             "displayName": "arch: ARMv8-M mainline, os: None, fp: hard",
             "description": "ARMv8-M for bare metal (Cortex M33, M35P, M55, M85)",
             "inherits": "gcc-arm-none-eabi",
@@ -16,9 +16,9 @@
     ],
     "buildPresets": [
         {
-            "name": "thumbv8m_main-none-eabihf",
+            "name": "thumbv8m.main-none-eabihf",
             "description": "No build targets specified",
-            "configurePreset": "thumbv8m_main-none-eabihf"
+            "configurePreset": "thumbv8m.main-none-eabihf"
         }
     ]
 }
