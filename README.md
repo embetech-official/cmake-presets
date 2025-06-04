@@ -16,6 +16,8 @@ This repository contains a collection of CMake presets for various architectures
 - **thumbv7m-none-eabi**: ARMv7-M (Thumb, softfp) for bare metal, e.g. Cortex M3.
 - **thumbv7em-none-eabi**: ARMv7e-M (Thumb, softfp) for bare metal, e.g. Cortex M4, M7
 - **thumbv7em-none-eabihf**: ARMv7e-M (Thumb, hardfp) for bare metal.
+- **thumbv8m.base-none-eabi**: ARMv8-M Baseline (Thumb, softfp) for bare metal, e.g. Cortex M23.
+- **thumbv8m.main-none-eabihf**: ARMv8-M Mainline (Thumb, hardfp) for bare metal, e.g. Cortex M33, M35P, M55, M85
 - **x86_64-linux-gnu**: x86_64 for Linux.
 - **x86_64-windows-gnu**: x86_64 for Windows (MinGW).
 - **arm-linux-gnueabihf**: ARMv6 (AArch32) for Linux.

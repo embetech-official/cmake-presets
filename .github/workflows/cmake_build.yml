@@ -41,6 +41,11 @@ on:
         description: 'Artifact Name'
         type: string
 
+      working_directory:
+        description: 'Working Directory for the build job (used when project is in subdirectory)'
+        type: string
+        default: '.'
+
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
@@ -71,17 +76,21 @@ jobs:
           git config --global --add url.https://${{ secrets.GH_TOKEN }}@github.com/.insteadOf https://github.com/
         
       - name: Configure
+        working-directory: ${{ inputs.working_directory }}
         run: cmake --preset ${{ inputs.configure_preset }} ${{ inputs.configure_args }}
 
       - name: Build Debug
+        working-directory: ${{ inputs.working_directory }}
         if: inputs.build_debug_config == true
         run: cmake --build --preset ${{ env.build_preset }} --config Debug ${{ env.build_target_arg }}
 
       - name: Build Release
+        working-directory: ${{ inputs.working_directory }}
         if: inputs.build_release_config == true
         run: cmake --build --preset ${{ env.build_preset }} --config Release ${{ env.build_target_arg }}
 
       - name: Test
+        working-directory: ${{ inputs.working_directory }}
         if: inputs.test_preset != ''
         run: ctest --preset ${{ inputs.test_preset }}
 
