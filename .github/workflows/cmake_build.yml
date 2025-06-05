@@ -85,6 +85,7 @@ jobs:
         run: cmake --build --preset ${{ env.build_preset }} --config Debug ${{ env.build_target_arg }}
 
       - name: Build Release
+        working-directory: ${{ inputs.working_directory }}
         if: inputs.build_release_config == true
         run: cmake --build --preset ${{ env.build_preset }} --config Release ${{ env.build_target_arg }}
 
