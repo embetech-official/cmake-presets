@@ -85,7 +85,6 @@ jobs:
         run: cmake --build --preset ${{ env.build_preset }} --config Debug ${{ env.build_target_arg }}
 
       - name: Build Release
-        working-directory: ${{ inputs.working_directory }}
         if: inputs.build_release_config == true
         run: cmake --build --preset ${{ env.build_preset }} --config Release ${{ env.build_target_arg }}
 
@@ -99,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v4
         id: upload_artifact
         env:
-          default_path: build/${{ inputs.configure_preset }}/install
+          default_path: ${{ inputs.working_directory }}/build/${{ inputs.configure_preset }}/install
 
         with:
           path:  ${{ inputs.artifact_path != '' && inputs.artifact_path || env.default_path }}
