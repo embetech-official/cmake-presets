@@ -100,7 +100,7 @@
         },
         {
             "name": "gcc-optimize-for-size",
-            "description": "GCC native toolchain",
+            "description": "GCC optimize for size",
             "hidden": true,
             "environment": {
                 "OPTIMIZATION_LEVEL": "-Os",
