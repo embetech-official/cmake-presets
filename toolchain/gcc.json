@@ -70,8 +70,8 @@
             }
         },
         {
-            "name": "gcc-native",
-            "description": "GCC native toolchain",
+            "name": "gcc-any",
+            "description": "GCC any available toolchain",
             "hidden": true,
             "inherits": "gcc-common-base",
             "cacheVariables": {

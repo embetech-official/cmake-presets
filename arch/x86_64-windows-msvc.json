@@ -1,0 +1,28 @@
+{
+    "version": 6,
+    "include": [
+        "${fileDir}/../../toolchain/msvc.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "x86_64-windows-msvc",
+            "displayName": "arch: x86_64, os: Windows, fp: hard, toolchain: msvc",
+            "description": "x86_64 for Windows (MSVC)",
+            "inherits": ["msvc-x86_64", "msvc-pedantic-warnings"],
+            "cacheVariables": {
+                "CMAKE_LIBRARY_ARCHITECTURE": "x86_64-windows-msvc",
+                "CMAKE_CXX_FLAGS_INIT": "/EHsc",
+                "CMAKE_C_FLAGS_INIT": "",
+                "CMAKE_ASM_FLAGS_INIT": "",
+                "CMAKE_EXE_LINKER_FLAGS_INIT": ""
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "x86_64-windows-msvc",
+            "description": "No build targets specified",
+            "configurePreset": "x86_64-windows-msvc"
+        }
+    ]
+}

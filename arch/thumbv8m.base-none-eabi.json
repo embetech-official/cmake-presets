@@ -6,7 +6,7 @@
     "configurePresets": [
         {
             "name": "thumbv8m.base-none-eabi",
-            "displayName": "arch: ARMv8-M baseline, os: None, fp: soft",
+            "displayName": "arch: ARMv8-M baseline, os: None, fp: soft, toolchain: gcc",
             "description": "ARMv8-M for bare metal (Cortex M23)",
             "inherits": "gcc-arm-none-eabi",
             "environment": {

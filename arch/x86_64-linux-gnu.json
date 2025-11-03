@@ -6,8 +6,8 @@
     "configurePresets": [
         {
             "name": "x86_64-linux-gnu",
-            "displayName": "arch: x86_64,        os: Linux, fp: hard",
-            "description": "x86_64 for Linux",
+            "displayName": "arch: x86_64, os: Linux, fp: hard, toolchain: gcc",
+            "description": "x86_64 for Linux (GCC)",
             "inherits": "gcc-x86_64-linux-gnu",
             "cacheVariables": {
                 "CMAKE_LIBRARY_ARCHITECTURE": "x86_64-linux-gnu"
