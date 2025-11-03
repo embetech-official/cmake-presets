@@ -13,7 +13,7 @@
                 "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7em-none-eabihf"
             },
             "environment": {
-                "ARCHITECTURE": "-mthumb -march=armv7e-m+fp -mfloat-abi=hard"
+                "GCC_ARCHITECTURE": "-mthumb -march=armv7e-m+fp -mfloat-abi=hard"
             }
         }
     ],

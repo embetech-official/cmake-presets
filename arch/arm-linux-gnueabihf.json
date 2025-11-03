@@ -13,7 +13,7 @@
                 "CMAKE_LIBRARY_ARCHITECTURE": "armv6-linux-gnueabihf"
             },
             "environment": {
-                "ARCHITECTURE": "-marm -march=armv6+fp -mfloat-abi=hard"
+                "GCC_ARCHITECTURE": "-marm -march=armv6+fp -mfloat-abi=hard"
             }
         }
     ],

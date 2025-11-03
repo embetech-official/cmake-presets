@@ -13,7 +13,7 @@
                 "CMAKE_LIBRARY_ARCHITECTURE": "x86_64-linux-gnu"
             },
             "environment": {
-                "ARCHITECTURE": "-march=x86-64"
+                "GCC_ARCHITECTURE": "-march=x86-64"
             }
         }
     ],

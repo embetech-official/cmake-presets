@@ -13,7 +13,7 @@
                 "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7m-none-eabi"
             },
             "environment": {
-                "ARCHITECTURE": "-mthumb -march=armv7-m -mfloat-abi=soft"
+                "GCC_ARCHITECTURE": "-mthumb -march=armv7-m -mfloat-abi=soft"
             }
         }
     ],
