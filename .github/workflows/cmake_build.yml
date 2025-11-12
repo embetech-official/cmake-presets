@@ -59,6 +59,7 @@ jobs:
     env:
       build_preset: ${{ inputs.build_preset != '' && inputs.build_preset || inputs.configure_preset }}
       build_target_arg: ${{ inputs.build_target != '' && format('--target {0}',  inputs.build_target) || '' }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 
     outputs:
@@ -68,15 +69,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN != '' && secrets.GH_TOKEN || github.token }}
+          token: ${{ env.GH_TOKEN != '' && env.GH_TOKEN || github.token }}
           submodules: recursive
 
       - name: Setup Github Token 
-        if: secrets.GH_TOKEN != ''
+        if: ${{ env.GH_TOKEN != '' }}
         run: |
           git config --global credential.helper store
           git config --global --get-regexp "url.*insteadof" |xargs -rL1 git config --global --unset
-          git config --global --add url.https://${{ secrets.GH_TOKEN }}@github.com/.insteadOf https://github.com/
+          git config --global --add url.https://${{ env.GH_TOKEN }}@github.com/.insteadOf https://github.com/
         
       - name: Configure
         working-directory: ${{ inputs.working_directory }}
