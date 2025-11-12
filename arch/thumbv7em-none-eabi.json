@@ -6,14 +6,14 @@
     "configurePresets": [
         {
             "name": "thumbv7em-none-eabi",
-            "displayName": "arch: ARMv7e-M, os: None, fp: soft",
+            "displayName": "arch: ARMv7e-M, os: None, fp: soft, toolchain: gcc",
             "description": "ARMv7e-M for bare metal (Cortex M4, M7)",
             "inherits": "gcc-arm-none-eabi",
             "cacheVariables": {
                 "CMAKE_LIBRARY_ARCHITECTURE": "thumbv7em-none-eabi"
             },
             "environment": {
-                "ARCHITECTURE": "-mthumb -march=armv7e-m -mfloat-abi=soft"
+                "GCC_ARCHITECTURE": "-mthumb -march=armv7e-m -mfloat-abi=soft"
             }
         }
     ],

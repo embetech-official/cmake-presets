@@ -8,13 +8,7 @@
             "name": "native-gcc",
             "displayName": "arch: Native,         os: Native, fp: native",
             "description": "Let the CMake find the best compiler for the host system",
-            "inherits": "gcc-native",
-            "cacheVariables": {
-                "CMAKE_CXX_FLAGS_INIT": "-ffunction-sections -fdata-sections",
-                "CMAKE_C_FLAGS_INIT": "-ffunction-sections -fdata-sections",
-                "CMAKE_ASM_FLAGS_INIT": "-x assembler-with-cpp",
-                "CMAKE_EXE_LINKER_FLAGS_INIT": "-Wl,--gc-sections"
-            }
+            "inherits": "gcc-any"
         }
     ],
     "buildPresets": [

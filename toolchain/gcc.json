@@ -7,14 +7,10 @@
             "hidden": true,
             "cacheVariables": {
                 "CMAKE_TRY_COMPILE_TARGET_TYPE": "STATIC_LIBRARY",
-                "CMAKE_CXX_FLAGS_INIT": "$env{ARCHITECTURE} $env{OPTIMIZATION_LEVEL} $env{CXX_WARNINGS} $env{CXX_FLAGS} $env{GC_SECTIONS}",
-                "CMAKE_CXX_FLAGS_DEBUG_INIT": "-g3",
-                "CMAKE_CXX_FLAGS_RELEASE_INIT": "-DNDEBUG",
-                "CMAKE_C_FLAGS_INIT": "$env{ARCHITECTURE} $env{OPTIMIZATION_LEVEL} $env{C_WARNINGS} $env{C_FLAGS} $env{GC_SECTIONS}",
-                "CMAKE_C_FLAGS_DEBUG_INIT": "-g3",
-                "CMAKE_C_FLAGS_RELEASE_INIT": "-DNDEBUG",
-                "CMAKE_ASM_FLAGS_INIT": "-x assembler-with-cpp $env{ARCHITECTURE} $env{ASM_FLAGS}",
-                "CMAKE_EXE_LINKER_FLAGS_INIT": "$env{LINK_OPTIONS} $env{GC_SECTIONS}"
+                "CMAKE_CXX_FLAGS_INIT": "$env{GCC_ARCHITECTURE} $env{GCC_OPTIMIZATION_LEVEL} $env{GCC_CXX_WARNINGS} $env{GCC_CXX_FLAGS} $env{GCC_GC_SECTIONS}",
+                "CMAKE_C_FLAGS_INIT": "$env{GCC_ARCHITECTURE} $env{GCC_OPTIMIZATION_LEVEL} $env{GCC_C_WARNINGS} $env{GCC_C_FLAGS} $env{GCC_GC_SECTIONS}",
+                "CMAKE_ASM_FLAGS_INIT": "-x assembler-with-cpp $env{GCC_ARCHITECTURE} $env{GCC_ASM_FLAGS}",
+                "CMAKE_EXE_LINKER_FLAGS_INIT": "$env{GCC_LINK_OPTIONS} $env{GCC_GC_SECTIONS}"
             }
         },
         {
@@ -70,8 +66,8 @@
             }
         },
         {
-            "name": "gcc-native",
-            "description": "GCC native toolchain",
+            "name": "gcc-any",
+            "description": "GCC any available toolchain",
             "hidden": true,
             "inherits": "gcc-common-base",
             "cacheVariables": {
@@ -85,8 +81,8 @@
             "hidden": true,
             "description": "GCC reasonable warnings",
             "environment": {
-                "C_WARNINGS": " -Wall -Wextra",
-                "CXX_WARNINGS": "-Wall -Wextra"
+                "GCC_C_WARNINGS": " -Wall -Wextra",
+                "GCC_CXX_WARNINGS": "-Wall -Wextra"
             }
         },
         {
@@ -94,17 +90,17 @@
             "hidden": true,
             "description": "GCC pedantic warnings",
             "environment": {
-                "C_WARNINGS": " -Wpedantic -Wunused-parameter -Winit-self -Wcast-align -Wconversion -Wnull-dereference -Wduplicated-cond  -Wsign-conversion -Wlogical-op",
-                "CXX_WARNINGS": "-Wpedantic -Wunused-parameter -Winit-self -Wcast-align -Wconversion -Wnull-dereference -Wduplicated-cond  -Wsign-conversion -Wlogical-op"
+                "GCC_C_WARNINGS": " -Wpedantic -Wunused-parameter -Winit-self -Wcast-align -Wconversion -Wnull-dereference -Wduplicated-cond  -Wsign-conversion -Wlogical-op",
+                "GCC_CXX_WARNINGS": "-Wpedantic -Wunused-parameter -Winit-self -Wcast-align -Wconversion -Wnull-dereference -Wduplicated-cond  -Wsign-conversion -Wlogical-op"
             }
         },
         {
             "name": "gcc-optimize-for-size",
-            "description": "GCC native toolchain",
+            "description": "GCC optimize for size",
             "hidden": true,
             "environment": {
-                "OPTIMIZATION_LEVEL": "-Os",
-                "GC_SECTIONS": "-ffunction-sections -fdata-sections -Wl,--gc-sections -Wl,--print-memory-usage"
+                "GCC_OPTIMIZATION_LEVEL": "-Os",
+                "GCC_GC_SECTIONS": "-ffunction-sections -fdata-sections -Wl,--gc-sections -Wl,--print-memory-usage"
             }
         }
     ]

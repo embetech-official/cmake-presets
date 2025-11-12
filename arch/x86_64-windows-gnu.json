@@ -6,14 +6,14 @@
     "configurePresets": [
         {
             "name": "x86_64-windows-gnu",
-            "displayName": "arch: x86_64,        os: MinGW, fp: hard",
-            "description": "x86_64 for Windows",
+            "displayName": "arch: x86_64, os: Windows, fp: hard, toolchain: gcc",
+            "description": "x86_64 for Windows (GCC)",
             "inherits": "gcc-x86_64-w64-mingw32",
             "cacheVariables": {
                 "CMAKE_LIBRARY_ARCHITECTURE": "x86_64-windows-gnu"
             },
             "environment": {
-                "ARCHITECTURE": "-march=x86-64"
+                "GCC_ARCHITECTURE": "-march=x86-64"
             }
         }
     ],

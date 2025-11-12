@@ -6,14 +6,14 @@
     "configurePresets": [
         {
             "name": "armv6-linux-gnueabihf",
-            "displayName": "arch: ARMv6,        os: Linux, fp: hard",
+            "displayName": "arch: ARMv6, os: Linux, fp: hard, toolchain: gcc",
             "description": "AArch32 for Linux",
             "inherits": "gcc-arm-none-linux-gnueabihf",
             "cacheVariables": {
                 "CMAKE_LIBRARY_ARCHITECTURE": "armv6-linux-gnueabihf"
             },
             "environment": {
-                "ARCHITECTURE": "-marm -march=armv6+fp -mfloat-abi=hard"
+                "GCC_ARCHITECTURE": "-marm -march=armv6+fp -mfloat-abi=hard"
             }
         }
     ],

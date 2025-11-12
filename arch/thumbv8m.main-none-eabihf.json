@@ -6,11 +6,14 @@
     "configurePresets": [
         {
             "name": "thumbv8m.main-none-eabihf",
-            "displayName": "arch: ARMv8-M mainline, os: None, fp: hard",
+            "displayName": "arch: ARMv8-M mainline, os: None, fp: hard, toolchain: gcc",
             "description": "ARMv8-M for bare metal (Cortex M33, M35P, M55, M85)",
             "inherits": "gcc-arm-none-eabi",
+            "cacheVariables": {
+                "CMAKE_LIBRARY_ARCHITECTURE": "thumbv8m.main-none-eabihf"
+            },
             "environment": {
-                "ARCHITECTURE": "-mthumb -march=armv8-m.main+fp -mfloat-abi=hard"
+                "GCC_ARCHITECTURE": "-mthumb -march=armv8-m.main+fp -mfloat-abi=hard"
             }
         }
     ],
