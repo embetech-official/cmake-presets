@@ -46,13 +46,15 @@ on:
         type: string
         default: '.'
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      runner_label:
+        description: 'Label of the GitHub Actions runner to use for the build job'
+        type: string
+        default: 'self-hosted'
 
 jobs:
   build:
     name: "preset: ${{ inputs.configure_preset }}, target: ${{ inputs.build_target }}"
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ${{ fromJson(inputs.runner_label) }}
 
     env:
       build_preset: ${{ inputs.build_preset != '' && inputs.build_preset || inputs.configure_preset }}
@@ -66,10 +68,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN }} 
+          token: ${{ secrets.GH_TOKEN != '' && secrets.GH_TOKEN || github.token }}
           submodules: recursive
 
       - name: Setup Github Token 
+        if: secrets.GH_TOKEN != ''
         run: |
           git config --global credential.helper store
           git config --global --get-regexp "url.*insteadof" |xargs -rL1 git config --global --unset
